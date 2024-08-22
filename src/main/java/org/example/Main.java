@@ -9,11 +9,11 @@ import org.hibernate.Transaction;
 public class Main {
     public static void main(String[] args) {
 
-        FullName fullName = new FullName("Sonic","ben");
+        FullName fullName = new FullName("Soc","ben");
 
         Session session = FactoryConfiguration.getInstance().getSession();
         Student student = new Student();
-        student.setId(1);
+        student.setId(2);
         student.setName(fullName);
         student.setAddress("kalutara");
 
@@ -21,7 +21,7 @@ public class Main {
 
         Transaction transaction = session.beginTransaction();
 
-        session.save(student); //save update change karala wens kargnn puluwn
+        session.delete("1",student); //save update change karala wens kargnn puluwn
         transaction.commit();
         session.close();
     }
